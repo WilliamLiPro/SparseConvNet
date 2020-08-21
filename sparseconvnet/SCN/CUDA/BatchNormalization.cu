@@ -46,7 +46,8 @@ __global__ void BatchNormalization_f_train(
       runningVar[plane] = momentum * runningVar[plane] +
                           (1 - momentum) * _saveInvStd / (nActive - 1);
     }
-    _saveInvStd = pow(_saveInvStd / nActive + eps, -0.5);
+    // _saveInvStd = pow(_saveInvStd / nActive + eps, -0.5);
+    _saveInvStd = pow(double(_saveInvStd / nActive + eps), -0.5);
     if (threadIdx.y == 0)
       saveInvStd[plane] = _saveInvStd;
     __syncthreads();
@@ -80,8 +81,8 @@ __global__ void BatchNormalization_f_test(
   for (Int plane = threadIdx.x + blockIdx.x * NTX; plane < nPlanes;
        plane += gridDim.x * NTX) {
     if (threadIdx.y == 0) {
-      W[threadIdx.x] =
-          pow(runningVar[plane] + eps, -0.5) * (weight ? weight[plane] : 1);
+      // W[threadIdx.x] = pow(runningVar[plane] + eps, -0.5) * (weight ? weight[plane] : 1);
+      W[threadIdx.x] = pow(double(runningVar[plane] + eps), -0.5) * (weight ? weight[plane] : 1);
       B[threadIdx.x] =
           (bias ? bias[plane] : 0) - runningMean[plane] * W[threadIdx.x];
     }

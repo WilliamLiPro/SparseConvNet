@@ -76,13 +76,13 @@ void AveragePooling_updateOutput(at::Tensor &inputSize, at::Tensor &outputSize,
                                  Metadata<Dimension> &m,
                                  at::Tensor &input_features,
                                  at::Tensor &output_features,
-                                 long nFeaturesToDrop);
+                                 int64_t nFeaturesToDrop);
 template <Int Dimension>
 void AveragePooling_updateGradInput(
     at::Tensor &inputSize, at::Tensor &outputSize, at::Tensor &poolSize,
     at::Tensor &poolStride, Metadata<Dimension> &m, at::Tensor &input_features,
     at::Tensor &d_input_features, at::Tensor &d_output_features,
-    long nFeaturesToDrop);
+    int64_t nFeaturesToDrop);
 template <Int Dimension>
 double
 Convolution_updateOutput(at::Tensor &inputSize, at::Tensor &outputSize,
@@ -163,8 +163,8 @@ template <Int Dimension>
 void InputLayer_updateOutput(Metadata<Dimension> &m, at::Tensor &spatialSize,
                              at::Tensor &input_coords,
                              at::Tensor &input_features,
-                             at::Tensor &output_features, long batchSize,
-                             long mode);
+                             at::Tensor &output_features, int64_t batchSize,
+                             int64_t mode);
 template <Int Dimension>
 void InputLayer_updateGradInput(Metadata<Dimension> &m,
                                 at::Tensor &d_input_features,
@@ -181,7 +181,7 @@ template <Int Dimension>
 void BLInputLayer_updateOutput(Metadata<Dimension> &m, at::Tensor &spatialSize,
                                at::Tensor &input_coords,
                                at::Tensor &input_features,
-                               at::Tensor &output_features, long mode);
+                               at::Tensor &output_features, int64_t mode);
 template <Int Dimension>
 void BLInputLayer_updateGradInput(Metadata<Dimension> &m,
                                   at::Tensor &d_input_features,
@@ -198,28 +198,28 @@ template <Int Dimension>
 void MaxPooling_updateOutput(at::Tensor &inputSize, at::Tensor &outputSize,
                              at::Tensor &poolSize, at::Tensor &poolStride,
                              Metadata<Dimension> &m, at::Tensor &input_features,
-                             at::Tensor &output_features, long nFeaturesToDrop);
+                             at::Tensor &output_features, int64_t nFeaturesToDrop);
 template <Int Dimension>
 void MaxPooling_updateGradInput(
     at::Tensor &inputSize, at::Tensor &outputSize, at::Tensor &poolSize,
     at::Tensor &poolStride, Metadata<Dimension> &m, at::Tensor &input_features,
     at::Tensor &d_input_features, at::Tensor &output_features,
-    at::Tensor &d_output_features, long nFeaturesToDrop);
+    at::Tensor &d_output_features, int64_t nFeaturesToDrop);
 template <Int Dimension>
 void RandomizedStrideMaxPooling_updateOutput(
     at::Tensor &inputSize, at::Tensor &outputSize, at::Tensor &poolSize,
     at::Tensor &poolStride, Metadata<Dimension> &m, at::Tensor &input_features,
-    at::Tensor &output_features, long nFeaturesToDrop);
+    at::Tensor &output_features, int64_t nFeaturesToDrop);
 template <Int Dimension>
 void RandomizedStrideMaxPooling_updateGradInput(
     at::Tensor &inputSize, at::Tensor &outputSize, at::Tensor &poolSize,
     at::Tensor &poolStride, Metadata<Dimension> &m, at::Tensor &input_features,
     at::Tensor &d_input_features, at::Tensor &output_features,
-    at::Tensor &d_output_features, long nFeaturesToDrop);
+    at::Tensor &d_output_features, int64_t nFeaturesToDrop);
 template <Int Dimension>
 void SparseToDense_updateOutput(at::Tensor &inputSize, Metadata<Dimension> &m,
                                 at::Tensor &input_features,
-                                at::Tensor &output_features, long nPlanes);
+                                at::Tensor &output_features, int64_t nPlanes);
 template <Int Dimension>
 void SparseToDense_updateGradInput(at::Tensor &inputSize,
                                    Metadata<Dimension> &m,
@@ -230,14 +230,14 @@ template <Int Dimension>
 void UnPooling_updateOutput(at::Tensor &inputSize, at::Tensor &outputSize,
                             at::Tensor &poolSize, at::Tensor &poolStride,
                             Metadata<Dimension> &m, at::Tensor &input_features,
-                            at::Tensor &output_features, long nFeaturesToDrop);
+                            at::Tensor &output_features, int64_t nFeaturesToDrop);
 template <Int Dimension>
 void UnPooling_updateGradInput(at::Tensor &inputSize, at::Tensor &outputSize,
                                at::Tensor &poolSize, at::Tensor &poolStride,
                                Metadata<Dimension> &m,
                                at::Tensor &d_input_features,
                                at::Tensor &d_output_features,
-                               long nFeaturesToDrop);
+                               int64_t nFeaturesToDrop);
 
 void CopyFeaturesHelper_updateOutput(at::Tensor &rules, at::Tensor &context,
                                      at::Tensor &Context);

@@ -43,13 +43,13 @@ template <Int Dimension> void dimension(py::module &m, const char *name) {
         "");
   m.def("AveragePooling_updateOutput",
         (void (*)(at::Tensor&, at::Tensor&, at::Tensor&, at::Tensor&,
-                  Metadata<Dimension> &, at::Tensor&, at::Tensor&, long)) &
+                  Metadata<Dimension> &, at::Tensor&, at::Tensor&, int64_t)) &
             AveragePooling_updateOutput,
         "");
   m.def("AveragePooling_updateGradInput",
         (void (*)(at::Tensor&, at::Tensor&, at::Tensor&, at::Tensor&,
                   Metadata<Dimension> &, at::Tensor&, at::Tensor&, at::Tensor&,
-                  long)) &
+                  int64_t)) &
             AveragePooling_updateGradInput,
         "");
   m.def("Convolution_updateOutput",
@@ -102,29 +102,29 @@ template <Int Dimension> void dimension(py::module &m, const char *name) {
         "");
   m.def("MaxPooling_updateOutput",
         (void (*)(at::Tensor&, at::Tensor&, at::Tensor&, at::Tensor&,
-                  Metadata<Dimension> &, at::Tensor&, at::Tensor&, long)) &
+                  Metadata<Dimension> &, at::Tensor&, at::Tensor&, int64_t)) &
             MaxPooling_updateOutput,
         "");
   m.def("MaxPooling_updateGradInput",
         (void (*)(at::Tensor&, at::Tensor&, at::Tensor&, at::Tensor&,
                   Metadata<Dimension> &, at::Tensor&, at::Tensor&, at::Tensor&,
-                  at::Tensor&, long)) &
+                  at::Tensor&, int64_t)) &
             MaxPooling_updateGradInput,
         "");
   m.def("RandomizedStrideMaxPooling_updateOutput",
         (void (*)(at::Tensor&, at::Tensor&, at::Tensor&, at::Tensor&,
-                  Metadata<Dimension> &, at::Tensor&, at::Tensor&, long)) &
+                  Metadata<Dimension> &, at::Tensor&, at::Tensor&, int64_t)) &
             RandomizedStrideMaxPooling_updateOutput,
         "");
   m.def("RandomizedStrideMaxPooling_updateGradInput",
         (void (*)(at::Tensor&, at::Tensor&, at::Tensor&, at::Tensor&,
                   Metadata<Dimension> &, at::Tensor&, at::Tensor&, at::Tensor&,
-                  at::Tensor&, long)) &
+                  at::Tensor&, int64_t)) &
             RandomizedStrideMaxPooling_updateGradInput,
         "");
   m.def("SparseToDense_updateOutput",
         (void (*)(at::Tensor&, Metadata<Dimension> &, at::Tensor&, at::Tensor&,
-                  long)) &
+                  int64_t)) &
             SparseToDense_updateOutput,
         "");
   m.def("SparseToDense_updateGradInput",
@@ -154,7 +154,7 @@ template <Int Dimension> void dimension(py::module &m, const char *name) {
         "");
   m.def("InputLayer_updateOutput",
         (void (*)(Metadata<Dimension> &, at::Tensor&, at::Tensor&, at::Tensor&,
-                  at::Tensor&, long, long)) &
+                  at::Tensor&, int64_t, int64_t)) &
             InputLayer_updateOutput,
         "");
   m.def("InputLayer_updateGradInput",
@@ -171,7 +171,7 @@ template <Int Dimension> void dimension(py::module &m, const char *name) {
         "");
   m.def("BLInputLayer_updateOutput",
         (void (*)(Metadata<Dimension> &, at::Tensor&, at::Tensor&, at::Tensor&,
-                  at::Tensor&, long)) &
+                  at::Tensor&, int64_t)) &
             BLInputLayer_updateOutput,
         "");
   m.def("BLInputLayer_updateGradInput",
@@ -188,12 +188,12 @@ template <Int Dimension> void dimension(py::module &m, const char *name) {
         "");
   m.def("UnPooling_updateOutput",
         (void (*)(at::Tensor&, at::Tensor&, at::Tensor&, at::Tensor&,
-                  Metadata<Dimension> &, at::Tensor&, at::Tensor&, long)) &
+                  Metadata<Dimension> &, at::Tensor&, at::Tensor&, int64_t)) &
             UnPooling_updateOutput,
         "");
   m.def("UnPooling_updateGradInput",
         (void (*)(at::Tensor&, at::Tensor&, at::Tensor&, at::Tensor&,
-                  Metadata<Dimension> &, at::Tensor&, at::Tensor&, long)) &
+                  Metadata<Dimension> &, at::Tensor&, at::Tensor&, int64_t)) &
             UnPooling_updateGradInput,
         "");
 }

@@ -50,8 +50,9 @@
 _START_GOOGLE_NAMESPACE_
 
 template <bool> struct SparsehashCompileAssert { };
-#define SPARSEHASH_COMPILE_ASSERT(expr, msg) \
-  __attribute__((unused)) typedef SparsehashCompileAssert<(bool(expr))> msg[bool(expr) ? 1 : -1]
+//#define SPARSEHASH_COMPILE_ASSERT(expr, msg) \
+//  __attribute__((unused)) typedef SparsehashCompileAssert<(bool(expr))> msg[bool(expr) ? 1 : -1]
+#define SPARSEHASH_COMPILE_ASSERT(expr, msg) static_assert(expr, "message")
 
 namespace sparsehash_internal {
 
